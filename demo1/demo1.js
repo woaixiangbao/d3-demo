@@ -1,5 +1,5 @@
 function makeDemo1 () {
-  d3.tsv("example-simple1.tsv")
+  d3.tsv("demo1.tsv")
     .then((data) => {
       d3.select('svg')
         .selectAll('circle')

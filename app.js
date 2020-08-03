@@ -3,14 +3,18 @@ const fs = require('fs');
 const server = http.createServer((request, response) => {
   console.log('server start!', request.url)
   let filePath;
-  if (request.url === '/demo') {
-    filePath = 'demo1.html';
+  if (/\/demo\d+$/.test(request.url)) {
+    filePath = request.url.replace(/(\/)(demo)(\d+)/, (match, $1, $2, $3) => {
+      return `./${$2}${$3}/${$2}${$3}.html`
+    })
     fs.readFile(filePath, (err, data) => {
       response.write('' + data);
       response.end();
     })
-  } else if (request.url === '/example-simple1.tsv') {
-    filePath = 'example-simple1.tsv';
+  } else if (/\/demo\d+\.*/.test(request.url)) {
+    filePath = request.url.replace(/\/(demo\d+)(\.*)/, (match, $1, $2) => {
+      return `./${$1}/${$1}${$2}`
+    })
     fs.readFile(filePath, (err, data) => {
       response.write(data);
       response.end();
