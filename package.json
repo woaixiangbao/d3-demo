@@ -1,0 +1,22 @@
+{
+  "name": "d3-demo",
+  "version": "1.0.0",
+  "description": "d3 learn",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woaixiangbao/d3-demo.git"
+  },
+  "keywords": [
+    "d3"
+  ],
+  "author": "jianqing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/woaixiangbao/d3-demo/issues"
+  },
+  "homepage": "https://github.com/woaixiangbao/d3-demo#readme"
+}
