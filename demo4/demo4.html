@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script>
+    function makeList() {
+      var vs = ['From East', 'to West,', 'at Home', 'is Best'];
+      d3.select('body')
+        .append('ul').selectAll('li')
+        .data(vs).enter()
+        .append('li').text(d => d);
+    }
+  </script>
+  <title>Document</title>
+</head>
+<body onload="makeList()">
+</body>
+</html>
