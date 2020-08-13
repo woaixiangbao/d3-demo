@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script>
+    function makeSort() {
+      var data = ['Jane', 'Anne', 'Mary'];
+      var ul = d3.select('#sort');
+      ul.selectAll('li').data(data).enter().append('li').text( d => d);
+      var once;
+      ul.on('mouseenter', function() {
+        if (once) return;
+        once = 1;
+        ul.insert('li', ':nth-child(2)')
+          .datum('Lucy').text('Lucy');
+        ul.insert('li', ':first-child')
+          .datum('Lisa').text('Lisa');
+      })
+      ul.on('click', function() {
+        ul.selectAll('li').sort((a, b) => (a < b ? 1 : b < a ? -1 : 0));
+      })
+    }
+  </script>
+  <title>makeSort</title>
+</head>
+<body onload="makeSort()">
+  <svg id="sort" width="600" height="300" style="background-color: lightgrey;"></svg>
+</body>
+</html>

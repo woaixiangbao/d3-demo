@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script>
+    function coordsPixels(selector) {
+      var txt = d3.select(selector).append('text');
+      var svg = d3.select(selector).attr('cursor', 'srosshair')
+        .on('mousemove', function() {
+          var pt = d3.mouse(svg.node());
+          txt.attr('x', 18 + pt[0]).attr('y', 6 + pt[1])
+            .text('' + pt[0] + ',' + pt[1]);
+        })
+    }
+  </script>
+  <title>coordsPixels</title>
+</head>
+<body onload="coordsPixels('#key')">
+  <svg id="key" width="600" height="300" style="background-color: lightgrey;"></svg>
+</body>
+</html>
