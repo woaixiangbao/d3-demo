@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script>
+    function makeStagger() {
+      d3.select('#custom').append('rect')
+        .attr('x', 80).attr('y', 80)
+        .attr('width', 40).attr('height', 40)
+        .transition().duration(2000).ease(t => t)
+        .attrTween('transform', function() {
+          return t => 'rotate(' + 360 * t + ', 100, 100)'
+        })
+    }
+  </script>
+  <title>makeStagger</title>
+</head>
+<body onload="makeStagger()">
+  <svg id="custom" width="600" height="200"></svg>
+</body>
+</html>
